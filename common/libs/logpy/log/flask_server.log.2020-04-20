@@ -1,0 +1,75 @@
+2020-04-20 16:22:04,058 - INFO    -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-04-20 16:22:04,865 - INFO    - A request happened at hello_world
+2020-04-20 16:22:04,866 - WARNING - A warning hello_world
+2020-04-20 16:22:04,866 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:22:04,866 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 36, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:22:04,867 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:22:04] "GET / HTTP/1.1" 200 -
+2020-04-20 16:22:05,597 - INFO    - A request happened at hello_world
+2020-04-20 16:22:05,597 - WARNING - A warning hello_world
+2020-04-20 16:22:05,597 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:22:05,597 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 36, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:22:05,598 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:22:05] "GET / HTTP/1.1" 200 -
+2020-04-20 16:29:52,690 - INFO    -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-04-20 16:29:55,356 - INFO    - A request happened at hello_world
+2020-04-20 16:29:55,356 - WARNING - A warning hello_world
+2020-04-20 16:29:55,356 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:29:55,357 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 37, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:29:55,358 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:29:55] "GET / HTTP/1.1" 200 -
+2020-04-20 16:29:56,415 - INFO    - A request happened at hello_world
+2020-04-20 16:29:56,415 - WARNING - A warning hello_world
+2020-04-20 16:29:56,415 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:29:56,416 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 37, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:29:56,416 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:29:56] "GET / HTTP/1.1" 200 -
+2020-04-20 16:29:56,685 - INFO    - A request happened at hello_world
+2020-04-20 16:29:56,685 - WARNING - A warning hello_world
+2020-04-20 16:29:56,685 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:29:56,685 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 37, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:29:56,685 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:29:56] "GET / HTTP/1.1" 200 -
+2020-04-20 16:29:56,868 - INFO    - A request happened at hello_world
+2020-04-20 16:29:56,868 - WARNING - A warning hello_world
+2020-04-20 16:29:56,868 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:29:56,869 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 37, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:29:56,869 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:29:56] "GET / HTTP/1.1" 200 -
+2020-04-20 16:31:17,328 - INFO    -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-04-20 16:31:17,862 - INFO    - A request happened at hello_world
+2020-04-20 16:31:17,862 - WARNING - A warning hello_world
+2020-04-20 16:31:17,863 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:31:17,863 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 37, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:31:17,864 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:31:17] "GET / HTTP/1.1" 200 -
+2020-04-20 16:31:18,895 - INFO    - A request happened at hello_world
+2020-04-20 16:31:18,895 - WARNING - A warning hello_world
+2020-04-20 16:31:18,895 - ERROR   - An exception occurred at hello_world
+2020-04-20 16:31:18,896 - ERROR   - message
+Traceback (most recent call last):
+  File "/Users/conor/Code/DraftPython/flasklog/flasklog.py", line 37, in hello_world
+    1 / 0
+ZeroDivisionError: division by zero
+2020-04-20 16:31:18,896 - INFO    - 127.0.0.1 - - [20/Apr/2020 16:31:18] "GET / HTTP/1.1" 200 -

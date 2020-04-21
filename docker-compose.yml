@@ -1,0 +1,88 @@
+version: '3'
+services:
+  redis:
+    container_name: redis_dev_container
+    image: redis
+    ports:
+      - "6379:6379"
+
+  webapp:
+    container_name: webapp
+    image: <own registry>/<image name>:release-v<tag>
+    depends_on:
+        - mysql
+        - mongodb
+    ports:
+      # <Port exposed> : < webapp/flask Port running inside container>
+      - '8001:8001'
+    volumes:
+       - ./docker-compose/app/log:/var/log/app/log
+    networks:
+      - happytogether
+
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'databae name'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user username'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'user password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'root password'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+#      - mysql-db:/var/lib/mysql
+#      - ./docker-compose/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./docker-compose/mysql/var/lib/mysql:/var/lib/mysql
+      - ./docker-compose/bak.sql:/docker-entrypoint-initdb.d/bak.sql
+    networks:
+      - happytogether
+
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root user username'
+      MONGO_INITDB_ROOT_PASSWORD: 'root user password'
+    ports:
+      - 27017:27017
+    volumes:
+       - ./docker-compose/mongodb/data/db:/data/db
+#      - mongodb_data_container:/data/db
+    networks:
+      - happytogether
+
+
+  nginx:
+    restart: always
+    image: registry.cn-beijing.aliyuncs.com/shinewingdigital/frisk360-front:v0.1.4
+    ports:
+      - 8080:80
+      - 80:80
+      - 443:443
+    volumes:
+      - ./docker-compose/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker-compose/nginx/log:/var/log/nginx
+      - ./docker-compose/nginx/www:/var/www
+#      - ./docker-compose/nginx/etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+        - webapp
+    networks:
+      - happytogether
+
+#volumes:
+#  mongodb_data_container:
+#  mysql-db:
+
+networks:
+  happytogether:
