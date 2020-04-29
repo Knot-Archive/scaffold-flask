@@ -1,5 +1,6 @@
 import logging
-from flasklogyml.logging import setup_logging
+
+from .logging import setup_logging
 
 setup_logging()
 logger = logging.getLogger("Common")
