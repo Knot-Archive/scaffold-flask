@@ -7,7 +7,6 @@ from ExtendRegister.register_principal import principals
 from ExtendRegister.register_sqlalchemy import db
 from applications.auth import bp_auth
 from clis import demo_cli
-from config.config import BaseConfig
 from config.config import ConfigInstanceFactory
 
 
@@ -17,7 +16,10 @@ class Flask(_Flask):
     static_folder = os.getcwd() + '/static'
 
 
-def create_app(config_obj=BaseConfig):
+def create_app():
+    config_factory = ConfigInstanceFactory()
+    config_obj = config_factory.get_config_instance()
+
     app = Flask(__name__)
 
     """
@@ -85,9 +87,3 @@ def create_app(config_obj=BaseConfig):
     app.cli.add_command(demo_cli)
 
     return app
-
-
-def make_app():
-    config_factory = ConfigInstanceFactory()
-    config_obj = config_factory.get_config_instance()
-    return create_app(config_obj)

@@ -1,6 +1,6 @@
-from ApplicationFactory import make_app
+from ApplicationFactory.application import create_app
 
-app = make_app()
+app = create_app()
 
 if __name__ == '__main__':
-    app.run(port=8001)
+    app.run()

@@ -1,19 +1,16 @@
 import os
 
-from dotenv import find_dotenv
-from dotenv import load_dotenv
+from flask.cli import load_dotenv
 
-from common.libs.Singleton import SingletonType
+# ! this should before ConfigClass. Because class static variable __new__ cant get env.
+load_dotenv()
 
 
 class BaseConfig:
-    # SERVER_NAME = 'localhost:8001'
-    FLASK_RUN_PORT = '8001'
-    SECRET_KEY = "CZJ23KP9HKyujjurjhRRX4DoW6pQD2MxFK"
+    SECRET_KEY = os.environ.get('SECRET_KEY', "! need secret key")
+    SERVER_NAME = os.environ.get('SERVER_NAME', 'localhost:8080')
+    FLASK_ENV = os.environ.get('FLASK_ENV', 'development')
     DEBUG = True
-    """flask-sqlalchemy"""
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     """mail"""
     # MAIL_SERVER :# 默认为 ‘localhost’
@@ -30,15 +27,24 @@ class BaseConfig:
 
 
 class ProductionConfig(BaseConfig):
-    pass
+    """flask-sqlalchemy"""
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI', 'sqlite:///app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS', False)
+    DEBUG = False
 
 
 class DevelopmentConfig(BaseConfig):
-    pass
+    """flask-sqlalchemy"""
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI', 'sqlite:///app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS', False)
+    DEBUG = True
 
 
 class DockerComposeConfig(BaseConfig):
-    pass
+    """flask-sqlalchemy"""
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI', 'sqlite:///app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS', False)
+    DEBUG = False
 
 
 class ConfigInstanceFactory:
@@ -55,7 +61,6 @@ class ConfigInstanceFactory:
             return DevelopmentConfig
 
     def app_conf(self):
-        load_dotenv(find_dotenv())
         config_key = os.environ.get('FLASK_CONF')
         assert config_key in ['prod', 'dev', 'docker', 'default']
         return config_key
