@@ -1,5 +1,7 @@
 import os
 from flask import Flask as _Flask
+from flask import jsonify
+
 from ExtendRegister.register_cors import cors
 from ExtendRegister.register_login import login_manager
 from ExtendRegister.register_mail import mail
@@ -83,6 +85,26 @@ def create_app():
     def teardown(e):
         # print("app.teardown")
         pass
+
+    @app.errorhandler(400)
+    def resource_not_found(e):
+        return jsonify(error=str(e)), 400
+
+    @app.errorhandler(401)
+    def resource_not_found(e):
+        return jsonify(error=str(e)), 401
+
+    @app.errorhandler(403)
+    def resource_not_found(e):
+        return jsonify(error=str(e)), 403
+
+    @app.errorhandler(404)
+    def resource_not_found(e):
+        return jsonify(error=str(e)), 404
+
+    @app.errorhandler(500)
+    def resource_not_found(e):
+        return jsonify(error=str(e)), 500
 
     app.cli.add_command(demo_cli)
 
