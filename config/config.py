@@ -3,7 +3,7 @@ import os
 from flask.cli import load_dotenv
 
 # ! this should before ConfigClass. Because class static variable __new__ cant get env.
-load_dotenv()
+load_dotenv('.flaskenv-foobar')
 
 
 class BaseConfig:

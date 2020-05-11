@@ -1,0 +1,11 @@
+# Default
+FLASK_APP=app.py
+
+# FLASK_CONF in [dev, prod, docker, default]
+FLASK_CONF=dev
+SERVER_NAME=localhost:8082
+SECRET_KEY=CZJ23KP9HKyujjurjhRRX4DoW6pQD2MxFK
+
+# Dev
+FLASK_ENV=development
+TESTING=True
