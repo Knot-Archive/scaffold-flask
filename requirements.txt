@@ -38,7 +38,7 @@ packaging==20.3
 passlib==1.7.2
 pathtools==0.1.2
 port-for==0.3.1
-Pygments==2.6.1
+Pygments==2.7.4
 PyJWT==1.7.1
 pymongo==3.10.1
 pyparsing==2.4.7
